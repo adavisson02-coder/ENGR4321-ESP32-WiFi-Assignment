@@ -38,7 +38,6 @@ Dashboard & Serial Monitor
 
 
 Features
-
 • Real-time temperature monitoring
 • Real-time humidity monitoring
 • Cloud data transmission via MQTT
@@ -46,20 +45,24 @@ Features
 • Remote dashboard visualization
 • Fully simulated IoT system
 
+
 Hardware Components
 Component	Purpose
 ESP32 DevKit V1	Main microcontroller
 DHT22 Sensor	Temperature & humidity sensing
-LED	Output indicator
+LED	        Output indicator
 Resistor	Current limiting
 Breadboard	Circuit assembly
 Jumper wires	Electrical connections
+
+
 Software & Tools
-Tool	Purpose
+Tool	        Purpose
 Arduino IDE	Firmware development
 Wokwi Simulator	ESP32 simulation
 Adafruit IO	Cloud platform
 GitHub	Version control
+
 
 Libraries used:
 
@@ -68,6 +71,7 @@ WiFi.h
 AdafruitIO_WiFi.h
 
 DHT.h
+
 
 How It Works
 
@@ -81,10 +85,12 @@ ESP32 publishes data every 5 seconds
 
 Cloud dashboard updates in real time
 
+
 Example Output
 Adafruit IO connected!
 Temp: 36.7 C, Hum: 50.5 %
 Temp OK, Hum OK
+
 
 Repository Structure
 ENGR4321-ESP32-WiFi-Assignment
@@ -92,6 +98,7 @@ ENGR4321-ESP32-WiFi-Assignment
 ├── sketch.ino
 ├── README.md
 └── images
+
 
 Engineering Skills Demonstrated
 
@@ -102,6 +109,7 @@ Cloud Integration
 Sensor Integration
 ESP32 Development
 
+
 Applications
 
 Environmental monitoring
@@ -109,11 +117,13 @@ Smart home systems
 Industrial monitoring
 Remote sensing systems
 
+
 Author
 
 Austin Davisson
 Mechatronics Engineering Student
 University of the Incarnate Word
+
 
 License
 
