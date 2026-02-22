@@ -73,7 +73,7 @@ DHT.h
 
 ## How It Works
 
-ESP32 connects to WiFi network
+ESP32 connects to the WiFi network
 
 ESP32 connects to Adafruit IO cloud
 
@@ -88,15 +88,6 @@ Cloud dashboard updates in real time
 Adafruit IO connected!
 Temp: 36.7 C, Hum: 50.5 %
 Temp OK, Hum OK
-
-
-## Repository Structure
-ENGR4321-ESP32-WiFi-Assignment
-│
-├── sketch.ino
-├── README.md
-└── images
-
 
 ## Engineering Skills Demonstrated
 
