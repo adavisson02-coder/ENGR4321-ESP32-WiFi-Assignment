@@ -23,17 +23,17 @@ System Preview
 System Architecture
 DHT22 Sensor
 (Temperature & Humidity)
-        │
-        ▼
+        
+        >
 ESP32 Microcontroller
-        │
-        ▼
+        
+        >
 WiFi Network
-        │
-        ▼
+        
+        >
 Adafruit IO Cloud Platform
-        │
-        ▼
+        
+        >
 Dashboard & Serial Monitor
 
 Features
