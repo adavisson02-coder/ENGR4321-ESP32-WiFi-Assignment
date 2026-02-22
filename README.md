@@ -16,7 +16,15 @@ Wokwi Project Link:
 
 [https://wokwi.com/projects/456615498165739521](https://wokwi.com/projects/456615498165739521)
 
-<p align="left"> <img src="https://github.com/user-attachments/assets/84d717b6-bc0e-45e2-bbf4-c03fe06dfdfc" width="400"> </p> <p align="right"> <img src="https://github.com/user-attachments/assets/567b6c78-cd50-44a0-9028-2338899db4bc" width="400"> </p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/84d717b6-bc0e-45e2-bbf4-c03fe06dfdfc" width="400">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://github.com/user-attachments/assets/567b6c78-cd50-44a0-9028-2338899db4bc" width="400">
+</p>
+
+<p align="center">
+  <em>Figure 1: ESP32 Circuit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Figure 2: Adafruit IO Dashboard</em>
+</p>
 
 
 ## System Preview
