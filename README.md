@@ -45,7 +45,9 @@ Dashboard & Serial Monitor
 
 
 ## Hardware Components
+
 |Component|Purpose|
+|---|---|
 |ESP32 DevKit V1|Main microcontroller|
 |DHT22 Sensor|Temperature & humidity sensing|
 |LED|Output indicator|
@@ -55,7 +57,9 @@ Dashboard & Serial Monitor
 
 
 ## Software & Tools
+
 |Tool|Purpose|
+|---|---|
 |Arduino IDE|Firmware development|
 |Wokwi Simulator|ESP32 simulation|
 |Adafruit IO|Cloud platform|
