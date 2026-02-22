@@ -36,11 +36,17 @@ Dashboard & Serial Monitor
 
 
 ## Features
+
 • Real-time temperature monitoring
+
 • Real-time humidity monitoring
+
 • Cloud data transmission via MQTT
+
 • Wireless communication using ESP32
+
 • Remote dashboard visualization
+
 • Fully simulated IoT system
 
 
@@ -68,24 +74,24 @@ Dashboard & Serial Monitor
 
 ## Libraries used:
 
-WiFi.h
+1. WiFi.h
 
-AdafruitIO_WiFi.h
+2. AdafruitIO_WiFi.h
 
-DHT.h
+3. DHT.h
 
 
 ## How It Works
 
-ESP32 connects to the WiFi network
+1. ESP32 connects to the WiFi network
 
-ESP32 connects to Adafruit IO cloud
+2. ESP32 connects to Adafruit IO cloud
 
-DHT22 sensor measures environmental conditions
+3. DHT22 sensor measures environmental conditions
 
-ESP32 publishes data every 5 seconds
+4. ESP32 publishes data every 5 seconds
 
-Cloud dashboard updates in real time
+5. Cloud dashboard updates in real time
 
 
 ## Example Output
