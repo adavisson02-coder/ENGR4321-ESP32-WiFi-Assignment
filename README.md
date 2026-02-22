@@ -1,81 +1,72 @@
-ENGR4321 – ESP32 WiFi Assignment
+ESP32 WiFi Temperature and Humidity Monitoring System
 
-Simulation Assignment 3: ESP32 WiFi, APIs, and Cloud Data
+Course: ENGR 4321 Microcontrollers & Embedded Systems
 Student: Austin Davisson
-Course: ENGR 4321 Microcontrollers and Embedded Systems
-Date: February 23, 2026
+Date: February 2026
 
 Project Overview
 
-This project demonstrates an Internet of Things (IoT) embedded system using the ESP32 microcontroller in the Wokwi simulator. The ESP32 connects to a WiFi network and communicates with the Adafruit IO cloud platform to transmit environmental sensor data.
+This project demonstrates an Internet-connected environmental monitoring system using an ESP32 DevKit V1 and a DHT22 temperature and humidity sensor. The ESP32 connects to a WiFi network and transmits sensor data to the Adafruit IO cloud platform. The system allows real-time monitoring of environmental conditions through a cloud dashboard and the Serial Monitor.
 
-A DHT22 temperature and humidity sensor is used as the input device. The ESP32 reads the sensor values and publishes the data to the Adafruit IO cloud dashboard every five seconds. This allows real-time remote monitoring of environmental conditions.
+Hardware Components (Simulated)
 
-This project demonstrates key IoT concepts including WiFi networking, cloud communication, and sensor integration.
+ESP32 DevKit V1
 
-System Block Diagram
-DHT22 Sensor
-(Temperature and Humidity)
-        │
-        │ GPIO 13
-        ▼
-ESP32 Microcontroller
-(WiFi Enabled Device)
-        │
-        │ WiFi Connection
-        ▼
-Adafruit IO Cloud Platform
-(MQTT / JSON Data Transfer)
-        │
-        ▼
-Cloud Dashboard and Serial Monitor
+DHT22 Temperature and Humidity Sensor
 
-WiFi and API Interaction Description
+LED
 
-The ESP32 connects to the internet using the built-in WiFi module and the WiFi.h library. In the Wokwi simulation environment, the ESP32 connects to the network named:
+Resistor
 
-Wokwi-GUEST
+Breadboard
+
+Jumper Wires
+
+Simulation Link
+
+[https://wokwi.com/projects/456615498165739521](https://wokwi.com/projects/456615498165739521)
+<img width="486" height="537" alt="Screenshot 2026-02-21 at 7 37 25 PM" src="https://github.com/user-attachments/assets/84d717b6-bc0e-45e2-bbf4-c03fe06dfdfc" />
 
 
-After establishing a WiFi connection, the ESP32 communicates with the Adafruit IO cloud platform using the AdafruitIO_WiFi library.
+How It Works
 
-Adafruit IO acts as a cloud API service that allows devices to send and receive data. The ESP32 sends temperature and humidity data to Adafruit IO feeds named:
+The ESP32 connects to the Wokwi-GUEST WiFi network using its built-in wireless module. Once connected, it establishes communication with the Adafruit IO cloud service using the MQTT protocol.
+
+The DHT22 sensor continuously measures temperature and humidity. The ESP32 reads these values every five seconds and publishes the data to Adafruit IO feeds named:
 
 temperature
 
 humidity
 
-The data is transmitted using the MQTT protocol, which internally uses JSON-formatted messages to exchange information between the ESP32 and the cloud server.
+The cloud dashboard displays the data in real time, allowing remote monitoring.
 
-This allows the sensor data to be viewed remotely in real time on the Adafruit IO dashboard.
+The Serial Monitor also confirms successful data transmission and displays the sensor readings.
 
-The Serial Monitor also displays confirmation messages showing successful data transmission.
-
-Example output:
-
+Example Serial Output
 Adafruit IO connected!
 Temp: 36.7 C, Hum: 50.5 %
 Temp OK, Hum OK
 
-Input and Output
+System Block Diagram
+DHT22 Sensor
+(Temperature / Humidity)
+        │
+        ▼
+ESP32 Microcontroller
+(WiFi Connection)
+        │
+        ▼
+Adafruit IO Cloud
+        │
+        ▼
+Dashboard / Serial Monitor
 
-Input Device:
+Repository Contents
 
-DHT22 Temperature and Humidity Sensor
+sketch.ino – ESP32 source code
 
-Output Devices:
-
-Serial Monitor
-Adafruit IO Cloud Dashboard
-LED indicator
-
-Wokwi Simulation Link
-
-[https://wokwi.com/projects/YOUR-PROJECT-LINK](https://wokwi.com/projects/456615498165739521)
-
-<img width="551" height="608" alt="Screenshot 2026-02-21 at 7 26 16 PM" src="https://github.com/user-attachments/assets/15a754ed-2318-49bf-b42f-78bdc07e103c" />
-
+README.md – Project documentation
 
 Summary
 
-This project successfully demonstrated WiFi communication between an ESP32 and a cloud platform. The ESP32 collected sensor data and transmitted it to Adafruit IO, allowing real-time remote monitoring. This confirms proper operation of an IoT embedded system using cloud communication.
+This project successfully demonstrated WiFi communication between an ESP32 and a cloud platform. Sensor data was collected and transmitted to Adafruit IO, confirming proper operation of an Internet-connected embedded system.
