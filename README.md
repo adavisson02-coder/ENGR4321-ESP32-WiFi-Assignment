@@ -27,22 +27,20 @@ Wokwi Project Link:
 </p>
 
 
-## System Preview
-System Architecture
-DHT22 Sensor
-(Temperature & Humidity)
-        -
-        >
-ESP32 Microcontroller
-        -
-        >
-WiFi Network
-        -
-        >
-Adafruit IO Cloud Platform
-        -
-        >
-Dashboard & Serial Monitor
+## System Architecture
+
+``text
+DHT22 Sensor (Temp/Humidity)
+          │
+          ▼
+      ESP32 DevKit V1
+          │  WiFi (Wokwi-GUEST)
+          ▼
+   Adafruit IO Cloud (MQTT)
+          │
+          ▼
+ Dashboard + Serial Monitor
+
 
 
 ## Features
