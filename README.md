@@ -17,7 +17,6 @@ Wokwi Project Link:
 [https://wokwi.com/projects/456615498165739521](https://wokwi.com/projects/456615498165739521)
 
 <p align="left"> <img src="https://github.com/user-attachments/assets/84d717b6-bc0e-45e2-bbf4-c03fe06dfdfc" width="450"> </p>
-
 <p align="right"> <img src="https://github.com/user-attachments/assets/567b6c78-cd50-44a0-9028-2338899db4bc" width="450"> </p>
 
 
