@@ -1,0 +1,121 @@
+#include <WiFi.h>
+#include "AdafruitIO_WiFi.h"
+#include "DHT.h"
+
+/************ WIFI SETTINGS ************/
+#define WIFI_SSID       "Wokwi-GUEST"
+#define WIFI_PASS       ""
+
+/************ ADAFRUIT IO SETTINGS ************/
+#define AIO_USERNAME    "AUStin_D1979"
+#define AIO_KEY         "KEY"
+
+/************ DHT SETTINGS ************/
+#define DHTPIN   13
+#define DHTTYPE  DHT22
+DHT dht(DHTPIN, DHTTYPE);
+
+/************ ADAFRUIT IO ************/
+AdafruitIO_WiFi io(AIO_USERNAME, AIO_KEY, WIFI_SSID, WIFI_PASS);
+AdafruitIO_Feed *temperature = io.feed("temperature");
+AdafruitIO_Feed *humidity    = io.feed("humidity");
+
+unsigned long lastPublish = 0;
+const unsigned long publishInterval = 5000;
+
+void connectWiFi() {
+  Serial.print("Connecting to WiFi: ");
+  Serial.println(WIFI_SSID);
+
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(WIFI_SSID, WIFI_PASS);
+
+  unsigned long start = millis();
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+    if (millis() - start > 20000) {   // 20s timeout
+      Serial.println("\nWiFi connect timeout. Retrying...");
+      WiFi.disconnect(true);
+      delay(500);
+      WiFi.begin(WIFI_SSID, WIFI_PASS);
+      start = millis();
+    }
+  }
+
+  Serial.println("\nWiFi connected!");
+  Serial.print("IP: ");
+  Serial.println(WiFi.localIP());
+}
+
+void connectAIO() {
+  Serial.println("Connecting to Adafruit IO...");
+  io.connect();
+
+  unsigned long start = millis();
+  while (io.status() < AIO_CONNECTED) {
+    io.run();               // IMPORTANT: let library process connection
+    Serial.print(".");
+    delay(500);
+
+    // 30s timeout then retry
+    if (millis() - start > 30000) {
+      Serial.println("\nAdafruit IO connect timeout. Retrying...");
+      delay(1000);
+      io.connect();
+      start = millis();
+    }
+  }
+
+  Serial.println("\nAdafruit IO connected!");
+  Serial.print("Status: ");
+  Serial.println(io.statusText());
+}
+
+void setup() {
+  Serial.begin(115200);
+  delay(1000);
+
+  dht.begin();
+
+  connectWiFi();
+  connectAIO();
+}
+
+void loop() {
+  io.run();
+
+  // If WiFi drops, reconnect both
+  if (WiFi.status() != WL_CONNECTED) {
+    Serial.println("WiFi lost. Reconnecting...");
+    connectWiFi();
+    connectAIO();
+  }
+
+  // If Adafruit IO drops, reconnect
+  if (io.status() < AIO_CONNECTED) {
+    Serial.println("Adafruit IO disconnected. Reconnecting...");
+    connectAIO();
+  }
+
+  if (millis() - lastPublish >= publishInterval) {
+    lastPublish = millis();
+
+    float t = dht.readTemperature();
+    float h = dht.readHumidity();
+
+    if (isnan(t) || isnan(h)) {
+      Serial.println("DHT read failed.");
+      return;
+    }
+
+    bool okT = temperature->save(t);
+    bool okH = humidity->save(h);
+
+    Serial.print("Temp: "); Serial.print(t); Serial.print(" C, ");
+    Serial.print("Hum: ");  Serial.print(h); Serial.print(" % | ");
+    Serial.print(okT ? "Temp OK" : "Temp FAIL");
+    Serial.print(", ");
+    Serial.println(okH ? "Hum OK" : "Hum FAIL");
+  }
+}
